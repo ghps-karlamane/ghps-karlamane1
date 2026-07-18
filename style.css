@@ -90,3 +90,36 @@ footer {
         padding: 10px;
     }
 }
+.school-banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.school-banner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .school-banner img {
+        height: 250px;
+    }
+}.school-banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.school-banner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .school-banner img {
+        height: 250px;
+    }
+}
