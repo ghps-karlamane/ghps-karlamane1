@@ -204,7 +204,6 @@ footer {
     font-size: 24px;
     margin-bottom: 8px;
 }
-
 .news-date {
     color: #666;
     font-size: 14px;
@@ -215,6 +214,19 @@ footer {
     margin-bottom: 15px;
 }
 
+.read-more {
+    display: inline-block;
+    background: #1565c0;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    background: #0d47a1;
+}
 .read-more {
     display: inline-block;
     background: #1565c0;
