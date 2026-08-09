@@ -282,3 +282,66 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* ಕಲರವ ಮಾಸ ಪತ್ರಿಕೆ */
+.magazine-card {
+    background: linear-gradient(135deg, #ffffff, #f5f9ff);
+    border-left: 6px solid #1565c0;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.magazine-icon {
+    font-size: 60px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.magazine-content h3 {
+    color: #1565c0;
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.magazine-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.magazine-button {
+    display: inline-block;
+    background: #1565c0;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.magazine-button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .magazine-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .magazine-content h3 {
+        font-size: 22px;
+    }
+
+    .magazine-content p {
+        font-size: 15px;
+    }
+}
