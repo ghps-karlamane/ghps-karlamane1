@@ -345,3 +345,96 @@ footer {
         font-size: 15px;
     }
 }
+/* =================================
+   KALARAVA MONTHLY MAGAZINE
+   ================================= */
+
+.magazine-card {
+    background: linear-gradient(135deg, #ffffff, #f5f9ff);
+    border-left: 6px solid #1565c0;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.magazine-cover {
+    flex: 0 0 220px;
+    text-align: center;
+}
+
+.magazine-cover img {
+    width: 220px;
+    max-width: 100%;
+    border-radius: 8px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.20);
+
+    transition: transform 0.3s ease;
+}
+
+.magazine-cover img:hover {
+    transform: scale(1.03);
+}
+
+.magazine-content {
+    flex: 1;
+}
+
+.magazine-content h3 {
+    color: #1565c0;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.magazine-content p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.magazine-button {
+    display: inline-block;
+    background: #1565c0;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.magazine-button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    .magazine-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .magazine-cover {
+        flex: none;
+    }
+
+    .magazine-cover img {
+        width: 260px;
+    }
+
+    .magazine-content h3 {
+        font-size: 23px;
+    }
+
+    .magazine-content p {
+        font-size: 15px;
+    }
+}
