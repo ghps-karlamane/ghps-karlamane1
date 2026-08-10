@@ -218,7 +218,62 @@ fetch(CMS_URL)
 
     // Events
     const events = data.Events || [];
+// ===============================
+// DISPLAY NEWS
+// ===============================
 
+const newsList = document.getElementById("news-list");
+
+if (newsList) {
+
+    newsList.innerHTML = "";
+
+    if (news.length === 0) {
+
+        newsList.innerHTML = `
+            <p>No latest news available.</p>
+        `;
+
+    } else {
+
+        news.forEach(item => {
+
+            const card = document.createElement("div");
+
+            card.className = "news-card";
+
+            card.innerHTML = `
+                <div class="news-content">
+
+                    <h3>📰 ${item.Title || ""}</h3>
+
+                    <p class="news-date">
+                        📅 ${item.Date || ""}
+                    </p>
+
+                    <p>
+                        ${item.Description || ""}
+                    </p>
+
+                    ${
+                        item.Link
+                        ? `<a href="${item.Link}"
+                              target="_blank"
+                              class="read-more">
+                              Read More
+                           </a>`
+                        : ""
+                    }
+
+                </div>
+            `;
+
+            newsList.appendChild(card);
+
+        });
+
+    }
+}
   })
   .catch(error => {
     console.error("CMS connection error:", error);
