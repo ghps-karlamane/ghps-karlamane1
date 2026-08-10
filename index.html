@@ -206,6 +206,34 @@
         <p>© 2026 GHPS Karlamane. All Rights Reserved.</p>
         <p>Government Higher Primary School, Karlamane</p>
     </footer>
+<script>
+const CMS_URL = "https://script.google.com/macros/s/AKfycbxC8tfBw3RatzwhMhR5m6R3yN472GIKdJTyCSPqKlSxRUe_10GgBaT_9bJVaCWn1uc/exec";
 
+fetch(CMS_URL)
+  .then(response => response.json())
+  .then(data => {
+
+    console.log("School CMS Data:", data);
+
+    // Announcements
+    const announcements = data.Announcements || [];
+
+    // News
+    const news = data.News || [];
+
+    // Gallery
+    const gallery = data.Gallery || [];
+
+    // Achievements
+    const achievements = data.Achievements || [];
+
+    // Events
+    const events = data.Events || [];
+
+  })
+  .catch(error => {
+    console.error("CMS connection error:", error);
+  });
+</script>
 </body>
 </html>
