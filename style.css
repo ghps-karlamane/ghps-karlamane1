@@ -367,3 +367,16 @@ footer {
         max-width: 260px !important;
     }
 }
+/* Full Kannada text in Latest School News */
+.news-card p {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    display: block;
+    max-height: none;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    line-height: 1.8;
+}
