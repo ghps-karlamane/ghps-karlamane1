@@ -770,152 +770,153 @@
            button.
         ======================================== */
 
-        function displayGallery(gallery) {
+function displayGallery(gallery) {
 
-            const container =
-                document.getElementById(
-                    "gallery-list"
-                );
+    const container =
+        document.getElementById("gallery-list");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    if (!gallery || gallery.length === 0) {
+
+        container.innerHTML = `
+            <div class="gallery-loading">
+                📸 No gallery photos available.
+            </div>
+        `;
+
+        return;
+    }
 
 
-            if (!container) return;
+    gallery.forEach(item => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "gallery-item";
 
 
-            container.innerHTML = "";
+        const title =
+            escapeHTML(
+                item.Title || "School Activity"
+            );
 
 
-            if (
-                !gallery ||
-                gallery.length === 0
-            ) {
+        const caption =
+            escapeHTML(
+                item.Caption || ""
+            );
 
-                container.innerHTML = `
-                    <div class="gallery-loading">
-                        📸 No gallery photos available.
+
+        const date =
+            formatDate(item.Date);
+
+
+        /*
+         * Thumbnail is the actual image URL.
+         *
+         * Image remains the Google Photos link.
+         */
+
+        const thumbnail =
+            item.Thumbnail || "";
+
+
+        const photoLink =
+            item.Image ||
+            item.Link ||
+            "";
+
+
+        card.innerHTML = `
+
+            <div class="gallery-image">
+
+                ${
+                    thumbnail
+                    ?
+                    `
+                    <img
+                        src="${safeURL(thumbnail)}"
+                        alt="${title}"
+                        loading="lazy"
+                    >
+                    `
+                    :
+                    `
+                    <div class="gallery-placeholder">
+                        📸
                     </div>
-                `;
+                    `
+                }
 
-                return;
-
-            }
-
-
-            gallery.forEach(item => {
-
-                const card =
-                    document.createElement("div");
+            </div>
 
 
-                card.className =
-                    "gallery-item";
+            <div class="gallery-info">
+
+                <h3>
+                    ${title}
+                </h3>
 
 
-                /*
-                 * Google Photos link
-                 *
-                 * Your sheet uses:
-                 *
-                 * Image = https://photos.app.goo.gl/...
-                 */
-
-                const photoLink =
-                    item.Image ||
-                    item.Link ||
-                    "";
-
-
-                const title =
-                    escapeHTML(
-                        item.Title ||
-                        "School Activity"
-                    );
+                ${
+                    caption
+                    ?
+                    `
+                    <p class="gallery-caption">
+                        ${caption}
+                    </p>
+                    `
+                    :
+                    ""
+                }
 
 
-                const caption =
-                    escapeHTML(
-                        item.Caption ||
-                        ""
-                    );
+                ${
+                    date
+                    ?
+                    `
+                    <p class="gallery-date">
+                        📅 ${date}
+                    </p>
+                    `
+                    :
+                    ""
+                }
 
 
-                const date =
-                    formatDate(
-                        item.Date
-                    );
+                ${
+                    photoLink
+                    ?
+                    `
+                    <a
+                        href="${safeURL(photoLink)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="gallery-button">
+
+                        📸 View Photo / Album
+
+                    </a>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+        `;
 
 
-                card.innerHTML = `
+        container.appendChild(card);
 
-                    <div class="gallery-photo-placeholder">
+    });
 
-                        <div class="gallery-camera">
-                            📸
-                        </div>
-
-                        <h3>
-                            ${title}
-                        </h3>
-
-                        ${
-                            caption
-                            ?
-                            `
-                            <p class="gallery-caption">
-                                ${caption}
-                            </p>
-                            `
-                            :
-                            ""
-                        }
-
-                    </div>
-
-
-                    ${
-                        date
-                        ?
-                        `
-                        <div class="gallery-date">
-                            📅 ${date}
-                        </div>
-                        `
-                        :
-                        ""
-                    }
-
-
-                    ${
-                        photoLink
-                        ?
-                        `
-                        <a
-                            href="${safeURL(photoLink)}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="gallery-button">
-
-                            📸 View Photo / Album
-
-                        </a>
-                        `
-                        :
-                        `
-                        <div class="gallery-no-link">
-                            Photo link not available
-                        </div>
-                        `
-                    }
-
-                `;
-
-
-                container.appendChild(card);
-
-            });
-
-        }
-
-
+}
 
         /* ========================================
            DATE FORMATTER
